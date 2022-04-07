@@ -43,3 +43,7 @@
 /otp               emmc     /dev/block/platform/bootdevice/by-name/otp               flags=display="Otp"
 /vbmeta            emmc     /dev/block/platform/bootdevice/by-name/vbmeta            flags=display="Vbmeta"
 /cust              ext4     /dev/block/platform/bootdevice/by-name/cust              flags=display="Cust"
+
+## External Storage(s)
+/external_sd       /dev/block/mmcblk1p1                                vfat flags=display="SD Card";storage;wipeingui;removable
+/usb_otg           /dev/block/sdd1                                     vfat flags=display="USB-OTG";storage;wipeingui;removable 
