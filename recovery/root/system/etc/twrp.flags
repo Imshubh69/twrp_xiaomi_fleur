@@ -1,0 +1,22 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+#TODO: Add 'check' as fs_mgr_flags with data partition.
+# Currently we dont have e2fsck compiled. So fs check would failed.
+
+#<src>            <type>    <mnt_point>                                        <mnt_flags and options>
+/data              f2fs     /dev/block/by-name/userdata                        flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized;keydirectory=/metadata/vold/metadata_encryption;fsverity
+/metadata          emmc     /dev/block/by-name/metadata                        flags=display="Metadata";backup=1;wrappedkey
+/misc              emmc     /dev/block/by-name/misc                            
+/cache             ext4     /dev/block/by-name/cache                           flags=display="Cache"
+/dtbo              emmc     /dev/block/by-name/dtbo                            flags=display="DTBo"
+/vbmeta            emmc     /dev/block/by-name/vbmeta                          flags=display="VBMeta"
+/vbmeta_vendor     emmc     /dev/block/by-name/vbmeta_vendor                   flags=display="VBMeta (Vendor)"
+/vbmeta_system     emmc     /dev/block/by-name/vbmeta_system                   flags=display="VBMeta (System)"
+/boot              emmc     /dev/block/by-name/boot                            flags=backup=1;flashimg=1
+/recovery          emmc     /dev/block/by-name/recovery                        flags=backup=1;flashimg=1
+
+## External Storage(s)
+/external_sd       /dev/block/mmcblk1p1                                vfat flags=display="SD Card";storage;wipeingui;removable
+/usb_otg           /dev/block/sdd1                                     vfat flags=display="USB-OTG";storage;wipeingui;removable
