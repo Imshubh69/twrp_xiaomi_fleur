@@ -72,6 +72,9 @@ BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=bootloader
 # Platform
 TARGET_BOARD_PLATFORM := mt6781
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
@@ -96,7 +99,6 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
